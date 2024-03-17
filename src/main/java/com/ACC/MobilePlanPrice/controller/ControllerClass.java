@@ -248,8 +248,8 @@ public class ControllerClass {
         	
             List<List<MobilePlan>> plans = new ArrayList<>();
             List<MobilePlan> rogersPlans=rogersService.getMobilePlan();
-            List<MobilePlan> bellPlans=rogersService.getMobilePlan();
-            List<MobilePlan> virginPlusPlans=rogersService.getMobilePlan();
+            List<MobilePlan> bellPlans=bellService.getMobilePlan();
+            List<MobilePlan> virginPlusPlans=freedomService.getMobilePlan();
             plans.add(rogersPlans);
             plans.add(bellPlans);
             plans.add(virginPlusPlans);         
