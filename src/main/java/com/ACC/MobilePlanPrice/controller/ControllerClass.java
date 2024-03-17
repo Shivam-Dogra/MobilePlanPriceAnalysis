@@ -2,10 +2,12 @@ package com.ACC.MobilePlanPrice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -259,8 +263,39 @@ public class ControllerClass {
             return new ResponseEntity<>( "An error occurred while fetching mobile plans",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
-    
-}
+	
 
+	@GetMapping("/best-plan/{criteria}")
+    public ResponseEntity<Object> getBestMobilePlans(@PathVariable String criteria) {
+        try {
+        	List<MobilePlan> allPlans = new ArrayList<>();
+            allPlans.addAll(rogersService.getMobilePlan());
+            allPlans.addAll(bellService.getMobilePlan());
+            allPlans.addAll(freedomService.getMobilePlan());
+
+            List<MobilePlan> filteredPlans = new ArrayList<>();
+            if (criteria.equals("price")) {
+                MobilePlan lowestPricePlan = allPlans.stream()
+                                                .min(Comparator.comparing(MobilePlan::getMonthlyCost))
+                                                .orElse(null);
+                if (lowestPricePlan != null) {
+                    filteredPlans.add(lowestPricePlan);
+                }
+            } else if (criteria.equals("data")) {
+                filteredPlans = allPlans.stream()
+                                    .filter(plan -> plan.getDataAllowance().equals("Unlimited data"))
+                                    .collect(Collectors.toList());
+            }
+
+            if (filteredPlans.isEmpty()) {
+                return new ResponseEntity<>("Please provide criteria as price or data.", HttpStatus.NOT_FOUND);
+            }
+
+            return new ResponseEntity<>(filteredPlans, HttpStatus.OK);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>("An error occurred while fetching mobile plans", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+}
 
