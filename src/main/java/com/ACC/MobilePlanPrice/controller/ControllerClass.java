@@ -22,7 +22,7 @@ import com.ACC.MobilePlanPrice.model.WebCrawlerResponse;
 import com.ACC.MobilePlanPrice.service.MobilePlanService;
 import com.ACC.MobilePlanPrice.service.impl.BellMobilePlanServiceImpl;
 import com.ACC.MobilePlanPrice.service.impl.RogersMobilePlanServiceImpl;
-import com.ACC.MobilePlanPrice.service.impl.WebCrawler;
+import com.ACC.MobilePlanPrice.service.impl.WebCrawlerServiceImp;
 import com.ACC.MobilePlanPrice.service.impl.WordCompletionImp;
 import com.ACC.MobilePlanPrice.service.impl.searchFrequencyImp;
 import com.ACC.MobilePlanPrice.service.impl.searchFrequencyImp.TreeNode;
@@ -55,7 +55,7 @@ public class ControllerClass {
 	private FreedomMobilePlanServiceImpl freedomService;
 	
 	@Autowired
-	private WebCrawler webCrawler;
+	private WebCrawlerServiceImp webCrawler;
 	
 	@Autowired
 	private FrequencyCountImpl frequencyCounter;
@@ -147,15 +147,14 @@ public class ControllerClass {
 	@GetMapping("/crawl")
 	public ResponseEntity<Object> crawl(@RequestParam String startingUrl) {
 	    try {
-	    	//WebCrawler c = new WebCrawler();
+	    	webCrawler.clear();
+
 	        Set<String> visitedUrls = webCrawler.crawl(startingUrl);
-	        
 	        
 	        // Create the response object with visited URLs and message
 	        Map<String, Object> response = new HashMap<>();
 	        response.put("visited_urls", visitedUrls);
 	        response.put("message", "Website is crawled!");
-	        
 	        
 	        // Return the response as JSON
 	        return new ResponseEntity<>(response, HttpStatus.OK);

@@ -1,5 +1,6 @@
 package com.ACC.MobilePlanPrice.service.impl;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +15,18 @@ import java.util.Scanner;
 import java.util.Set;
 
 @Service
-public class WebCrawler {
+@Scope("prototype")
+public class WebCrawlerServiceImp {
 
     private Set<String> visitedUrls;
     private Queue<String> urlsToVisit;
     private int maxUrlsToVisit;
     private String saveDir;
 
-    public WebCrawler() {
+    public WebCrawlerServiceImp() {
         visitedUrls = new HashSet<String>();
         urlsToVisit = new LinkedList<String>();
-        this.maxUrlsToVisit = 20;
+        this.maxUrlsToVisit = 5;
         this.saveDir = "MobileWebCrawlDir";
     }
 
@@ -56,5 +58,8 @@ public class WebCrawler {
         System.out.println("Website is crawled!");
         return visitedUrls;
     }
+    
+    
+
 
 }

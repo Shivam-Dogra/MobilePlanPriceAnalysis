@@ -13,7 +13,11 @@ import java.io.IOException;
 public class HTMLParser {
 
     public static String parse(String url, String saveDir) throws IOException {
-        try {
+    	try {
+            if (url == null || url.isEmpty()) {
+                return ""; // Return empty string if URL is null or empty
+            }
+
             Document doc = Jsoup.connect(url).get();
             String filename = saveDir + "/" + url.replaceAll("[^a-zA-Z0-9.-]", "_") + ".txt";
             BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
@@ -24,7 +28,7 @@ public class HTMLParser {
             String linksString = "";
             for (Element link : links) {
                 String nextUrl = link.absUrl("href");
-                if (isValidUrl(nextUrl)) {
+                if (nextUrl != null && !nextUrl.isEmpty() && isValidUrl(nextUrl)) {
                     linksString += nextUrl + " ";
                 }
             }
