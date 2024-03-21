@@ -1,11 +1,9 @@
 package com.ACC.MobilePlanPrice.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import features.HTMLParser;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -16,8 +14,12 @@ import java.util.Set;
 
 @Service
 @Scope("prototype")
+
 public class WebCrawlerServiceImp {
 
+	@Autowired
+	private HTMLParser htmlParser;
+	
     private Set<String> visitedUrls;
     private Queue<String> urlsToVisit;
     private int maxUrlsToVisit;
@@ -47,7 +49,7 @@ public class WebCrawlerServiceImp {
                 visitedUrls.add(url);
                 System.out.println("Visiting: " + url);
                 // Parse the page and extract links
-                String links = HTMLParser.parse(url, saveDir);
+                String links = htmlParser.parse(url, saveDir);
                 for (String nextUrl : links.split(" ")) {
                     if (!visitedUrls.contains(nextUrl)) {
                         urlsToVisit.add(nextUrl);

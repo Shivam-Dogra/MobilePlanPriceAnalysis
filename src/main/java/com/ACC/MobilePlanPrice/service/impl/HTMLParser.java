@@ -1,15 +1,17 @@
-package features;
+package com.ACC.MobilePlanPrice.service.impl;
 
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Service
 public class HTMLParser {
 
     public static String parse(String url, String saveDir) throws IOException {

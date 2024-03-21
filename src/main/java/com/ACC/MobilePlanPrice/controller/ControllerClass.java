@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ACC.MobilePlanPrice.model.Index;
 import com.ACC.MobilePlanPrice.model.MobilePlan;
+import com.ACC.MobilePlanPrice.model.PageRanking;
 import com.ACC.MobilePlanPrice.model.WebCrawlerResponse;
 import com.ACC.MobilePlanPrice.service.MobilePlanService;
 import com.ACC.MobilePlanPrice.service.impl.BellMobilePlanServiceImpl;
+import com.ACC.MobilePlanPrice.service.impl.DataValidation;
 import com.ACC.MobilePlanPrice.service.impl.RogersMobilePlanServiceImpl;
 import com.ACC.MobilePlanPrice.service.impl.WebCrawlerServiceImp;
 import com.ACC.MobilePlanPrice.service.impl.WordCompletionImp;
@@ -29,6 +32,8 @@ import com.ACC.MobilePlanPrice.service.impl.searchFrequencyImp.TreeNode;
 import com.ACC.MobilePlanPrice.service.impl.spellCheckImp;
 import com.ACC.MobilePlanPrice.service.impl.FreedomMobilePlanServiceImpl;
 import com.ACC.MobilePlanPrice.service.impl.FrequencyCountImpl;
+import com.ACC.MobilePlanPrice.service.impl.InvertedIndexImpl;
+import com.ACC.MobilePlanPrice.service.impl.PageRankingServiceImpl;
 
 @RestController
 @RequestMapping("/mobile-plans")
@@ -37,6 +42,7 @@ public class ControllerClass {
 	
 	private final searchFrequencyImp.TreeNode root;
 	private final searchFrequencyImp searchFrequency;
+	private String dir="MobileWebCrawlDir";
 
 
     @Autowired
@@ -66,10 +72,26 @@ public class ControllerClass {
 	@Autowired
 	private spellCheckImp spellCheck;
 	
+	@Autowired
+	private InvertedIndexImpl invertedIndexImplService;
+	
+	@Autowired
+	private PageRankingServiceImpl pageRankingService;
+	
 	
 	@GetMapping("/spellCheck/{userInput}")
 	public ResponseEntity<Object> spellCheck(@PathVariable String userInput) {
 		try {
+			
+			if (userInput == null || userInput.isEmpty()) {
+                return ResponseEntity.badRequest().body("Input word is empty.");
+            }
+			
+			// Validate user input format
+            if (!DataValidation.isValidWord(userInput)) {
+            	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
+            }
+            
 	        List<String> suggestions = spellCheckImp.spellTheWord(userInput);
 	        List<String> topTwoSuggestions = suggestions.subList(0, Math.min(suggestions.size(), 2));
 	        return ResponseEntity.ok().body(topTwoSuggestions);
@@ -83,6 +105,11 @@ public class ControllerClass {
 	@GetMapping("/searchFrequency")
 	public ResponseEntity<Object> searchFrequency() {
 		try {
+			
+			if (root == null) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Search frequency tree is not initialized.");
+            }
+			
 	        // Create a list to store word-frequency pairs
 	        List<Map<String, Object>> searchFrequencyList = new ArrayList<>();
 	        
@@ -117,6 +144,16 @@ public class ControllerClass {
 	@GetMapping("/wordcompletion/{userInput}")
 	public ResponseEntity<Object> wordCompletion(@PathVariable String userInput) {
 	    try {
+	    	
+	    	if (userInput == null || userInput.isEmpty()) {
+                return ResponseEntity.badRequest().body("Input word is empty.");
+            }
+	    	
+	    	// Validate user input format
+            if (!DataValidation.isValidWord(userInput)) {
+            	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
+            }
+	    	
 	        // Get the word completions for the user input
 	        List<String> wordCompletions = WordCompletionImp.spellSuggestions(userInput);
 	        
@@ -146,7 +183,18 @@ public class ControllerClass {
 	
 	@GetMapping("/crawl")
 	public ResponseEntity<Object> crawl(@RequestParam String startingUrl) {
-	    try {
+	    
+		if (startingUrl == null || startingUrl.isEmpty()) {
+            return ResponseEntity.badRequest().body("Starting URL is empty.");
+        }
+    	
+    	// Validate URL format
+        if (!DataValidation.isValidUrl(startingUrl)) {
+            return ResponseEntity.badRequest().body("Invalid URL format.");
+        }    	
+		
+		try {
+	    	
 	    	webCrawler.clear();
 
 	        Set<String> visitedUrls = webCrawler.crawl(startingUrl);
@@ -164,9 +212,49 @@ public class ControllerClass {
 	    }
 	}
 	
+	
+	@GetMapping("/invertedIndex/{userInput}")
+	public ResponseEntity<Object> invertedIndex(@PathVariable String userInput) {
+		 try {
+			 
+			 if (userInput == null || userInput.isEmpty()) {
+	                return ResponseEntity.badRequest().body("Input keyword is empty.");
+	            }
+			 
+			// Validate user input format
+	            if (!DataValidation.isValidKeyword(userInput)) {
+	                return ResponseEntity.badRequest().body("Invalid keyword format.");
+	            }
+			 
+		    //InvertedIndexImpl invertedIndex = new InvertedIndexImpl();
+			 invertedIndexImplService.buildIndex(dir); // Assuming the directory is "MobileWebCrawlDir"
+		    
+		    List<Index> occurrences = invertedIndexImplService.searchKeyword(userInput);
+		    if (occurrences.isEmpty()) {
+		        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		    } else {
+		        return new ResponseEntity<>(occurrences, HttpStatus.OK);
+		    }
+		 }
+		 
+		 catch (Exception e) {
+		        // Log the exception or handle it as needed
+		        return new ResponseEntity<>("Error in Inverted Indexing!", HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
+	}
+	
 	 @GetMapping("/frequencyCount/{userInput}")
 	    public ResponseEntity<Object> frequencyCount(@PathVariable String userInput) {
 	        try {
+	        	
+	        	if (userInput == null || userInput.isEmpty()) {
+	                return ResponseEntity.badRequest().body("Input word list is empty.");
+	            }
+	        	// Validate user input format
+	            if (!DataValidation.isValidWordList(userInput)) {
+	                return ResponseEntity.badRequest().body("Invalid word list format.");
+	            }
+	        	
 	        	// Split userInput into individual words
 	            String[] words = userInput.split(",");
 	            
@@ -184,6 +272,29 @@ public class ControllerClass {
 	    }    
 	
 	
+	 @GetMapping("/pageranking")
+	    public ResponseEntity<Object> getPageRanking(@RequestParam(required = false) String keyword) {
+	        // Check if the keyword parameter is provided
+	        if (keyword == null || keyword.isEmpty()) {
+	            // Return bad request response if keyword is missing
+	        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Entered keyword is missing.");
+	        }
+	        
+
+	        // Call the service to get the page ranking
+	        List<PageRanking> rankings = pageRankingService.getPageRanking(dir,keyword);
+
+	        // Check if the ranking list is empty
+	        if (rankings.isEmpty()) {
+	            // Return not found response if no results are found for the given keyword
+	        	return new ResponseEntity<>("No result found",HttpStatus.NOT_FOUND);
+	        }
+
+	        // Return the list of page rankings
+	        return new ResponseEntity<>(rankings, HttpStatus.OK);
+	     }
+	 
+	 
 	@GetMapping("/rogers")
     public ResponseEntity<Object> getRogersMobilePlan() {
 		try {
