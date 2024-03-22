@@ -117,7 +117,7 @@ VoLTE
 Wi-Fi
 hotspot
 tethering
-network congestion
+congestion
 latency
 signal strength
 bars
@@ -298,3 +298,212 @@ disruption
 agility
 resilience
 adaptation
+Essential
+plan
+data
+minutes
+text
+international
+roaming
+networking
+coverage
+unlimited
+calling
+SMS
+talk
+Canada
+USA
+Europe
+Asia
+Africa
+Australia
+rollover
+hotspot
+family
+share
+prepaid
+postpaid
+SIM
+activation
+fee
+contract
+upgrade
+device
+iPhone
+Android
+Samsung
+Apple
+LG
+Motorola
+Huawei
+OnePlus
+Google
+Pixel
+Galaxy
+note
+SE
+budget
+midrange
+flagship
+comparison
+discount
+promotion
+offer
+loyalty
+program
+bell
+billing
+statement
+invoice
+account
+balance
+due
+payment
+credit
+debit
+card
+autopay
+preauthorized
+withdrawal
+customer
+service
+support
+agent
+representative
+technical
+issue
+problem
+complaint
+resolution
+satisfaction
+review
+feedback
+rating
+survey
+quality
+speed
+reliability
+pricing
+affordable
+costeffective
+expensive
+cheapest
+value
+benefit
+feature
+specification
+terms
+conditions
+privacy
+policy
+area
+region
+location
+caps
+throttling
+restriction
+fair
+usage
+consumption
+limit
+cap
+exceeding
+rates
+charges
+perminute
+pertext
+perMB
+perGB
+surcharge
+per
+day
+week
+month
+charge
+overage
+additional
+extra
+premium
+access
+swap
+replacement
+nocontract
+activation
+terms
+subscription
+5G
+Essential
+Voice
+package
+Messaging
+Contract
+term
+option
+Upgrade
+eligibility
+Downgrade
+Bundle
+Family
+Shared
+Individual
+Student
+Senior
+Corporate
+Employee
+Early
+termination
+bonus
+Referral
+reward
+waiver
+Trade-in
+installment
+Buyback
+Lease
+Flexibility
+Customization
+Personalization
+Promo 75
+Essential 100
+Ultimate 150 - CAN/U.S./MEX
+5G Mobile 75GB
+5G Infinite Essential
+5G Infinite Premium
+UNLIMITED 50GB
+UNLIMITED 75GB
+UNLIMITED 100GB
+UNLIMITED 60GB
+ROAM BEYOND 60GB
+Provider options
+Plan options
+Monthly pricing
+Call coverage
+Text coverage
+Coverage area
+Data speed
+Voice quality
+reliability
+Price per month
+Billing cycle
+Monthly fee
+Monthly subscription
+Monthly invoice
+Monthly statement
+Monthly cost
+Monthly rate
+Nationwide coverage
+Regional coverage
+Global coverage
+Data usage
+Voice usage
+Text usage
+Data limit
+Talk limit
+LTE
+5G
+4G
+3G
+rogers
+freedom
+
+

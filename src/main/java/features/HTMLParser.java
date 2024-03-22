@@ -17,9 +17,10 @@ public class HTMLParser {
             if (url == null || url.isEmpty()) {
                 return ""; // Return empty string if URL is null or empty
             }
-
+            
             Document doc = Jsoup.connect(url).get();
             String filename = saveDir + "/" + url.replaceAll("[^a-zA-Z0-9.-]", "_") + ".txt";
+            //String filename = saveDir + "/" + url + ".txt";
             BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
             writer.write(doc.text());
             writer.close();

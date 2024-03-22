@@ -7,5 +7,5 @@ import com.ACC.MobilePlanPrice.model.MobilePlan;
 
 public interface MobilePlanService {
 
-	public List<MobilePlan> getMobilePlan();
+	public List<MobilePlan> getMobilePlan() throws InterruptedException;
 }

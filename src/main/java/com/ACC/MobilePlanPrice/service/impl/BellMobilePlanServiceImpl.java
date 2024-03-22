@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,11 @@ public class BellMobilePlanServiceImpl implements MobilePlanService {
     
 
     public void initializeDriver(String url) {
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--headless=new");
+        
     	driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(url);
         driver.manage().window().maximize();
     }
@@ -33,11 +37,11 @@ public class BellMobilePlanServiceImpl implements MobilePlanService {
     
 
     @Override
-    public List<MobilePlan> getMobilePlan() {
+    public List<MobilePlan> getMobilePlan() throws InterruptedException {
         List<MobilePlan> BellPlanList = new ArrayList<>();
 
         initializeDriver("https://www.bell.ca/Mobility/Cell_phone_plans/Unlimited-plans");
-        
+        Thread.sleep(4000);
         MobilePlan plan= new MobilePlan();
         
         try {

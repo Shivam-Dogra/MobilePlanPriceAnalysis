@@ -22,58 +22,49 @@ import com.ACC.MobilePlanPrice.service.MobilePlanService;
 public class RogersMobilePlanServiceImpl implements MobilePlanService {
 
 	private WebDriver driver;
+    private WebDriverWait wait;
+
 
     public void initializeDriver(String url) {
-    	
-    	driver = new ChromeDriver();
+    	ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        
+    	driver = new ChromeDriver(options);
+    	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(url);
         driver.manage().window().maximize();
     }
     
-    private static void waitInSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000);  // Convert seconds to milliseconds
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
     
    
 	@Override
 	public List<MobilePlan> getMobilePlan() {
 		
 		List<MobilePlan> rogersPlanList= new ArrayList<>();
-		// TODO Auto-generated method stub		
 
-		waitInSeconds(5);
 		initializeDriver("https://www.rogers.com/plans?icid=R_WIR_CMH_6WMCMZ");		
-        waitInSeconds(5);
+        List<WebElement> totalplans = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]")));
         
-        List<WebElement> totalplans = driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]"));
         
         for(int i=0;i<totalplans.size();i++) {
-        	waitInSeconds(3);
         	MobilePlan plan= new MobilePlan();        	
         	JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 
-            // Scroll down by a specific pixel value (e.g., 1000 pixels)
             jsExecutor.executeScript("window.scrollBy(0,1000);");      	
         	
-        	waitInSeconds(2);
-        	List<WebElement> planName = driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//p[contains(@class,'heading')]"));
+        	List<WebElement> planName = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//p[contains(@class,'heading')]")));
+            
+        	List<WebElement> monthlyCost=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//ds-price//div[@class='ds-price']")));
+            
         	
-        	waitInSeconds(2);
-        	   
-        	List<WebElement> monthlyCost=driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//ds-price//div[@class='ds-price']"));
-        	waitInSeconds(2);
+        	List<WebElement> dataAllowance= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//li//b")));
+            
         	
-        	List<WebElement> dataAllowance= driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//li//b"));
-        	waitInSeconds(2);
+        	List<WebElement>networkCoverage=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//li[contains(text(),'network')]")));
+            
         	
-        	List<WebElement>networkCoverage=driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//li[contains(text(),'network')]"));
-        	waitInSeconds(2);
-        	
-        	List<WebElement> callAndTextAllowance=driver.findElements(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//*[contains(text(),'talk') or contains(text(),'Calling')]"));
+        	List<WebElement> callAndTextAllowance=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//*[contains(text(),'talk') or contains(text(),'Calling')]")));
+            
         	
         	
         	plan.setDataAllowance(dataAllowance.get(i).getText());
