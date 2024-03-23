@@ -7,10 +7,9 @@ import java.net.URL;
 	 
 		    // Validate word format
 			public static boolean isValidWord(String word) {
-			    return word.matches("(?i)(?:[a-z]+|\\b(?:50|60|75|70|34|40|55|65|100|150)\\b)");
+			    return word.matches("(?i)(?:[a-z$0-9]+|5g\\+?)");
 			}
 
-		    
 		    
 			public static boolean isValidSearch(String word) {
 			    return word.matches("(?i)([a-zA-Z$0-9]+|5G\\+?|5g\\+?)");
