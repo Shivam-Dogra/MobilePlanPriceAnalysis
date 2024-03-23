@@ -73,7 +73,7 @@ public class ControllerClass {
 	public ResponseEntity<Object> spellCheck(@PathVariable String userInput) {
 		try {
 			// Validate user input format
-            if (!DataValidationServiceImp.isValidWord(userInput)) {
+            if (!DataValidationServiceImp.isValidSearch(userInput)) {
             	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
             }
 	        List<String> suggestions = spellCheckImp.spellTheWord(userInput);
@@ -91,6 +91,7 @@ public class ControllerClass {
 			if (root == null) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Search frequency tree is not initialized.");
             }
+			
 	        // Create a list to store word-frequency pairs
 	        List<Map<String, Object>> searchFrequencyList = new ArrayList<>();
 	        // Collect word-frequency pairs using in-order traversal
@@ -202,7 +203,7 @@ public class ControllerClass {
 	                return ResponseEntity.badRequest().body("Input word list is empty.");
 	        	}
 	        	// Validate user input format
-	            if (!DataValidationServiceImp.isValidWordList(userInput)) {
+	            if (!DataValidationServiceImp.isValidSearch(userInput)) {
 	                return ResponseEntity.badRequest().body("Invalid word list format.");
 	            }
 	        	// Split userInput into individual words

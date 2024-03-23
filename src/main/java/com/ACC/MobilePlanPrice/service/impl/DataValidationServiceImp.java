@@ -12,6 +12,15 @@ import java.util.regex.Pattern;
 		        // Word should contain only alphabetic characters
 		        return word.matches("[a-zA-Z]+");
 		    }
+		    
+		    public static boolean isValidSearch(String word) {
+		        // Word should contain only alphabetic characters and/or numbers
+		        if (word.equals("5G") || word.equals("5G+") || word.equals("4G")) {
+		            return true;
+		        } else {
+		            return word.matches("[a-zA-Z$0-9]+");
+		        }
+		    }
 	 
 		    // Validate URL format
 		    public static boolean isValidUrl(String url) {

@@ -52,7 +52,7 @@ public class spellCheckImp {
             }
 
             int distance = calculateDistance(node.word, query);
-            if (distance <= tolerance) {
+            if (distance <= tolerance && !suggestions.contains(node.word)) {
                 suggestions.add(node.word);
             }
 

@@ -198,3 +198,939 @@ Voice usage
 Text usage
 Data limit
 Talk limit
+plan
+price
+analysis
+mobile
+data
+usage
+unlimited
+minutes
+text
+messaging
+calls
+international
+roaming
+network
+coverage
+family
+individual
+contract
+prepaid
+postpaid
+monthly
+yearly
+bill
+statement
+invoice
+charges
+fees
+taxes
+surcharges
+discounts
+promotions
+deals
+offers
+bundles
+data cap
+speed
+throttling
+fair usage policy
+overage
+top-up
+balance
+credit
+payment
+installment
+upgrade
+downgrade
+cancellation
+termination
+early termination fee
+customer service
+support
+complaint
+resolution
+satisfaction
+reliability
+affordability
+value
+savings
+comparison
+competitors
+market
+trends
+demand
+supply
+consumer
+preferences
+needs
+requirements
+expectations
+satisfaction
+loyalty
+churn
+retention
+acquisition
+target audience
+demographics
+segmentation
+packages
+features
+benefits
+advantages
+disadvantages
+drawbacks
+terms
+conditions
+policy
+agreement
+contract
+terms and conditions
+privacy
+security
+fraud
+identity theft
+data breach
+compliance
+regulations
+legislation
+jurisdiction
+arbitration
+dispute resolution
+consumer rights
+fair trading
+competition
+marketplace
+innovation
+technology
+advancements
+infrastructure
+5G
+LTE
+4G
+3G
+GSM
+CDMA
+VoLTE
+Wi-Fi
+hotspot
+tethering
+congestion
+latency
+signal strength
+bars
+reception
+dead zones
+coverage map
+rural
+urban
+suburban
+metropolitan
+city
+town
+village
+remote areas
+accessibility
+availability
+expansion
+investment
+infrastructure
+towers
+antennas
+satellites
+partnerships
+collaborations
+alliances
+mergers
+acquisitions
+consolidation
+market share
+dominance
+competition
+rivalry
+innovation
+differentiation
+branding
+marketing
+advertising
+promotion
+campaign
+sponsorship
+endorsement
+influencers
+social media
+online presence
+website
+app
+mobile app
+user experience
+interface
+design
+navigation
+usability
+accessibility
+functionality
+features
+updates
+upgrades
+improvements
+bug fixes
+patches
+troubleshooting
+technical support
+customer service
+help desk
+chat support
+call center
+self-service
+knowledge base
+forums
+community
+user reviews
+ratings
+feedback
+surveys
+satisfaction
+loyalty
+retention
+churn
+referrals
+recommendations
+word-of-mouth
+influencer marketing
+affiliate marketing
+loyalty programs
+rewards
+incentives
+discounts
+promotions
+special offers
+deals
+bundles
+value-added services
+add-ons
+extra features
+customization
+personalization
+preferences
+needs
+requirements
+expectations
+satisfaction
+customer experience
+journey
+touchpoints
+omnichannel
+seamless
+integrated
+consistency
+reliability
+trust
+transparency
+honesty
+integrity
+ethics
+responsibility
+accountability
+sustainability
+environmental impact
+carbon footprint
+green initiatives
+eco-friendly
+renewable energy
+recycling
+waste reduction
+carbon offsetting
+social responsibility
+community engagement
+philanthropy
+charity
+donations
+volunteering
+corporate social responsibility
+stakeholder engagement
+investor relations
+shareholders
+governance
+board of directors
+executive team
+management
+leadership
+decision-making
+strategy
+planning
+execution
+performance
+monitoring
+evaluation
+assessment
+measurement
+benchmarks
+targets
+goals
+objectives
+key performance indicators
+KPIs
+metrics
+data analysis
+reporting
+insights
+trends
+patterns
+correlations
+predictive analytics
+forecasting
+modeling
+optimization
+efficiency
+effectiveness
+productivity
+profitability
+revenue
+growth
+market share
+competitive advantage
+differentiation
+innovation
+disruption
+agility
+resilience
+adaptation
+Essential
+plans
+data
+minutes
+text
+international
+roaming
+networking
+coverage
+unlimited
+calling
+SMS
+talk
+Canada
+USA
+Europe
+Asia
+Africa
+Australia
+rollover
+hotspot
+family
+share
+prepaid
+postpaid
+SIM
+activation
+fee
+contract
+upgrade
+device
+iPhone
+Android
+Samsung
+Apple
+LG
+Motorola
+Huawei
+OnePlus
+Google
+Pixel
+Galaxy
+note
+SE
+budget
+midrange
+flagship
+comparison
+discount
+promotion
+offer
+loyalty
+program
+bell
+billing
+statement
+invoice
+account
+balance
+due
+payment
+credit
+debit
+card
+autopay
+preauthorized
+withdrawal
+customer
+service
+support
+agent
+representative
+technical
+issue
+problem
+complaint
+resolution
+satisfaction
+review
+feedback
+rating
+survey
+quality
+speed
+reliability
+pricing
+affordable
+costeffective
+expensive
+cheapest
+value
+benefit
+feature
+specification
+terms
+conditions
+privacy
+policy
+area
+region
+location
+caps
+throttling
+restriction
+fair
+usage
+consumption
+limit
+cap
+exceeding
+rates
+charges
+perminute
+pertext
+perMB
+perGB
+surcharge
+per
+day
+week
+month
+charge
+overage
+additional
+extra
+premium
+access
+swap
+replacement
+nocontract
+activation
+terms
+subscription
+5G
+Essential
+Voice
+package
+Messaging
+Contract
+term
+option
+Upgrade
+eligibility
+Downgrade
+Bundle
+Family
+Shared
+Individual
+Student
+Senior
+Corporate
+Employee
+Early
+termination
+bonus
+Referral
+reward
+waiver
+Trade-in
+installment
+Buyback
+Lease
+Flexibility
+Customization
+Personalization
+Promo 75
+Essential 100
+Ultimate 150 - CAN/U.S./MEX
+5G Mobile 75GB
+5G Infinite Essential
+5G Infinite Premium
+UNLIMITED 50GB
+UNLIMITED 75GB
+UNLIMITED 100GB
+UNLIMITED 60GB
+ROAM BEYOND 60GB
+Provider options
+Plan options
+Monthly pricing
+Call coverage
+Text coverage
+Coverage area
+Data speed
+Voice quality
+reliability
+Price per month
+Billing cycle
+Monthly fee
+Monthly subscription
+Monthly invoice
+Monthly statement
+Monthly cost
+Monthly rate
+Nationwide coverage
+Regional coverage
+Global coverage
+Data usage
+Voice usage
+Text usage
+Data limit
+Talk limit
+LTE
+5G
+4G
+3G
+rogers
+freedom
+Smartphone
+Tablet
+Laptop
+Desktop
+Router
+Modem
+Ethernet
+Fiber
+Broadband
+Network
+Connectivity
+Signal
+Signal
+Bandwidth
+Latency
+Ping
+Download
+Upload
+Megabyte
+Gigabyte
+Terabyte
+Kilobit
+Megabit
+Gigabit
+Terabit
+Cloud
+Storage
+Backup
+Encryption
+Firewall
+Antivirus
+Malware
+Phishing
+Spam
+Hack
+Cybersecurity
+Privacy
+Authentication
+Authorization
+Virtualization
+Datacenter
+Server
+Hosting
+Domain
+DNS
+IP address
+IPv4
+IPv6
+SSL
+TLS
+Firmware
+Software
+Hardware
+Processor
+Memory
+RAM
+SSD
+HDD
+Cache
+Graphics
+Display
+Resolution
+Pixel
+Touchscreen
+Keyboard
+Mouse
+Input
+Output
+Peripheral
+Driver
+Operating system
+Windows
+macOS
+Linux
+Android
+iOS
+App store
+Play store
+App
+Application
+Interface
+GUI
+CLI
+API
+SDK
+Framework
+Library
+Compiler
+Interpreter
+Debugger
+Version control
+Git
+GitHub
+Repository
+Branch
+Commit
+Merge
+Pull request
+Fork
+Clone
+Remote
+Local
+Server
+Client
+Browser
+Chrome
+Firefox
+Safari
+Edge
+Internet Explorer
+Web
+Website
+Webpage
+HTML
+CSS
+JavaScript
+PHP
+Python
+Ruby
+Java
+C#
+C++
+SQL
+Database
+SQL
+NoSQL
+Oracle
+MySQL
+PostgreSQL
+MongoDB
+Firebase
+Cloud computing
+AWS
+Azure
+Google Cloud
+Virtual machine
+Container
+Docker
+Kubernetes
+Microservice
+API
+RESTful
+SOAP
+GraphQL
+Endpoint
+Authentication
+Authorization
+OAuth
+OpenID
+Security token
+the
+be
+to
+of
+and
+a
+in
+that
+have
+I
+it
+for
+not
+on
+with
+he
+as
+you
+do
+at
+this
+but
+his
+by
+from
+they
+we
+say
+her
+she
+or
+an
+will
+my
+one
+all
+would
+there
+their
+what
+so
+up
+out
+if
+about
+who
+get
+which
+go
+me
+when
+make
+can
+like
+time
+no
+just
+him
+know
+take
+people
+into
+year
+your
+good
+some
+could
+them
+see
+other
+than
+then
+now
+look
+only
+come
+its
+over
+think
+also
+back
+after
+use
+two
+how
+our
+work
+first
+well
+way
+even
+new
+want
+because
+any
+these
+give
+day
+most
+us
+see
+could
+go
+day
+use
+make
+over
+well
+way
+even
+new
+want
+because
+any
+these
+give
+most
+us
+after
+back
+work
+two
+how
+our
+first
+its
+also
+think
+only
+look
+now
+than
+then
+good
+some
+could
+them
+know
+take
+people
+into
+year
+your
+all
+would
+there
+their
+what
+so
+up
+out
+if
+about
+who
+get
+which
+go
+me
+when
+make
+can
+like
+time
+no
+just
+him
+know
+take
+people
+into
+year
+your
+good
+some
+could
+them
+see
+other
+than
+then
+now
+look
+only
+come
+its
+over
+think
+also
+back
+after
+use
+two
+how
+our
+work
+first
+well
+way
+even
+new
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+twenty-one
+twenty-two
+twenty-three
+twenty-four
+twenty-five
+twenty-six
+twenty-seven
+twenty-eight
+twenty-nine
+thirty
+thirty-one
+thirty-two
+thirty-three
+thirty-four
+thirty-five
+thirty-six
+thirty-seven
+thirty-eight
+thirty-nine
+forty
+forty-one
+forty-two
+forty-three
+forty-four
+forty-five
+forty-six
+forty-seven
+forty-eight
+forty-nine
+fifty
+Months
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+$60
+$50
+$75
+$34
+$40
+$55
+$65
+5G
+5G+
+
