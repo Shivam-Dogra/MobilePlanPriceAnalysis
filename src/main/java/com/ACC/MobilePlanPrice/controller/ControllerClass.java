@@ -68,7 +68,12 @@ public class ControllerClass {
 	private InvertedIndexImp invertedIndexImplService;
 	@Autowired
 	private PageRankingServiceImpl pageRankingService;
+	//@Autowired
+	//private DataValidationServiceImp DataValidation;
+	
+	
 
+	
 	@GetMapping("/spellCheck/{userInput}")
 	public ResponseEntity<Object> spellCheck(@PathVariable String userInput) {
 		try {
@@ -350,7 +355,6 @@ public class ControllerClass {
             return new ResponseEntity<>("An error occurred while fetching mobile plans", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
+	
 }
  

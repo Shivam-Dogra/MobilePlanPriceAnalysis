@@ -52,7 +52,8 @@ public class spellCheckImp {
             }
 
             int distance = calculateDistance(node.word, query);
-            if (distance <= tolerance && !suggestions.contains(node.word)) {
+            if (distance <= tolerance && !suggestions.contains(node.word) &&matchingLetters(node.word, query) >= 2) {
+           // if (distance <= tolerance && !suggestions.contains(node.word) && node.word.length()>=3) {
                 suggestions.add(node.word);
             }
 
@@ -114,6 +115,15 @@ public class spellCheckImp {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public static int matchingLetters(String word1, String word2) {
+        int count = 0;
+        for (int i = 0; i < Math.min(word1.length(), word2.length()); i++) {
+            if (word1.charAt(i) == word2.charAt(i)) {
+                count++;
+            }
+        }
+        return count;
     }
 
 

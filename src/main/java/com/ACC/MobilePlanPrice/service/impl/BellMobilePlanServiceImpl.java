@@ -28,7 +28,7 @@ public class BellMobilePlanServiceImpl implements MobilePlanService {
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--headless=new");
         
-    	driver = new ChromeDriver();
+    	driver = new ChromeDriver(options);
     	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(url);
         driver.manage().window().maximize();

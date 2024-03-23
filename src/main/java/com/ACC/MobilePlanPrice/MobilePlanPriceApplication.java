@@ -9,5 +9,5 @@ public class MobilePlanPriceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MobilePlanPriceApplication.class, args);
 	}
-
 }
+

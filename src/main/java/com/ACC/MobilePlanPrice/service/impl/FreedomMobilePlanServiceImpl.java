@@ -28,7 +28,7 @@ public class FreedomMobilePlanServiceImpl implements MobilePlanService {
     	ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         
-    	driver = new ChromeDriver();
+    	driver = new ChromeDriver(options);
     	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         
         driver.get(url);
@@ -72,11 +72,12 @@ public class FreedomMobilePlanServiceImpl implements MobilePlanService {
             	plan.setMonthlyCost(monthlyCost.get(i).getText());
             	plan.setDataAllowance(dataAllowance.get(i).getText());
             	
+            	
             
-            	if(i==4)
+            	//if(i==4)
             		plan.setNetworkCoverage("5G");
-            	else
-            		plan.setNetworkCoverage(networkCoverage.get(i).getText());
+            	//else
+            		//plan.setNetworkCoverage(networkCoverage.get(i).getText());
             	
             	plan.setCallAndTextAllowance(callAndTextAllowance.get(i).getText());       	
             	plan.setProvider("Freedom");
