@@ -2,25 +2,20 @@ package com.ACC.MobilePlanPrice.service.impl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-	 
+ 
 		public class DataValidationServiceImp {
 	 
 		    // Validate word format
-		    public static boolean isValidWord(String word) {
-		        // Word should contain only alphabetic characters
-		        return word.matches("[a-zA-Z]+");
-		    }
+			public static boolean isValidWord(String word) {
+			    return word.matches("(?i)(?:[a-z]+|\\b(?:50|60|75|70|34|40|55|65|100|150)\\b)");
+			}
+
 		    
-		    public static boolean isValidSearch(String word) {
-		        // Word should contain only alphabetic characters and/or numbers
-		        if (word.equals("5G") || word.equals("5G+") || word.equals("4G")) {
-		            return true;
-		        } else {
-		            return word.matches("[a-zA-Z$0-9]+");
-		        }
-		    }
+		    
+			public static boolean isValidSearch(String word) {
+			    return word.matches("(?i)([a-zA-Z$0-9]+|5G\\+?|5g\\+?)");
+			}
+
 	 
 		    // Validate URL format
 		    public static boolean isValidUrl(String url) {

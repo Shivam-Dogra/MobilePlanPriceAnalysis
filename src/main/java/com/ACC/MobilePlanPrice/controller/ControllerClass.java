@@ -73,7 +73,7 @@ public class ControllerClass {
 	public ResponseEntity<Object> spellCheck(@PathVariable String userInput) {
 		try {
 			// Validate user input format
-            if (!DataValidationServiceImp.isValidSearch(userInput)) {
+            if (!DataValidationServiceImp.isValidWord(userInput)) {
             	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
             }
 	        List<String> suggestions = spellCheckImp.spellTheWord(userInput);
@@ -109,11 +109,18 @@ public class ControllerClass {
 	    if (root != null) {
 	        // Traverse left subtree
 	        collectWordFrequencies(root.left, searchFrequencyList);
+	        
 	        // Add word-frequency pair to the list
+	        if (DataValidationServiceImp.isValidSearch(root.word)) {
 	        Map<String, Object> wordFrequencyMap = new HashMap<>();
-	        wordFrequencyMap.put("word", root.word);
-	        wordFrequencyMap.put("frequency", root.frequency);
-	        searchFrequencyList.add(wordFrequencyMap);
+		        wordFrequencyMap.put("word", root.word);
+		        wordFrequencyMap.put("frequency", root.frequency);
+		        searchFrequencyList.add(wordFrequencyMap);   
+	        }
+	        else {
+	        	ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Invalid word");
+	            
+	        }
 	        // Traverse right subtree
 	        collectWordFrequencies(root.right, searchFrequencyList);
 	    }
