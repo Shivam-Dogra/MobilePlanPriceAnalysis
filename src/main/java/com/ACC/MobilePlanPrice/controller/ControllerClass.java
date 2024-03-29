@@ -68,9 +68,6 @@ public class ControllerClass {
 	private InvertedIndexImp invertedIndexImplService;
 	@Autowired
 	private PageRankingServiceImpl pageRankingService;
-	//@Autowired
-	//private DataValidationServiceImp DataValidation;
-	
 	
 
 	
@@ -97,11 +94,8 @@ public class ControllerClass {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Search frequency tree is not initialized.");
             }
 			
-	        // Create a list to store word-frequency pairs
 	        List<Map<String, Object>> searchFrequencyList = new ArrayList<>();
-	        // Collect word-frequency pairs using in-order traversal
 	        collectWordFrequencies(root, searchFrequencyList);
-	        // Return the list as JSON response
 	        Map<String, List<Map<String, Object>>> response = new HashMap<>();
 	        response.put("searchFrequency", searchFrequencyList);
 	        return new ResponseEntity<>(response, HttpStatus.OK);
@@ -195,7 +189,7 @@ public class ControllerClass {
 	                return ResponseEntity.badRequest().body("Invalid keyword format.");
 	            }
 		    //InvertedIndexImpl invertedIndex = new InvertedIndexImpl();
-			 invertedIndexImplService.buildIndex(dir); // Assuming the directory is "MobileWebCrawlDir"
+			 invertedIndexImplService.buildIndex(dir); 
 		    List<Index> occurrences = invertedIndexImplService.searchKeyword(userInput);
 		    if (occurrences.isEmpty()) {
 		        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -241,7 +235,9 @@ public class ControllerClass {
 	        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Entered keyword is missing.");
 	        }
 
- 
+	        if (!DataValidationServiceImp.isValidKeyword(keyword)) {
+                return ResponseEntity.badRequest().body("Invalid keyword format.");
+            }
 	        // Call the service to get the page ranking
 	        List<PageRanking> rankings = pageRankingService.getPageRanking(dir,keyword);
  
@@ -284,7 +280,6 @@ public class ControllerClass {
                 return new ResponseEntity<>("Bell mobile plan not found",HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {
-            // Log the exception or handle it as needed
             return new ResponseEntity<>("An error occurred while fetching the Bell mobile plan",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -55,7 +55,7 @@ public class RogersMobilePlanServiceImpl implements MobilePlanService {
         	List<WebElement> planName = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//p[contains(@class,'heading')]")));
             
         	List<WebElement> monthlyCost=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//ds-price//div[@class='ds-price']")));
-            
+        	
         	
         	List<WebElement> dataAllowance= wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//ds-tile//div[contains(@class,'dsa-vertical-tile d-flex')]//li//b")));
             

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,10 +29,14 @@ public class BellMobilePlanServiceImpl implements MobilePlanService {
     	ChromeOptions options = new ChromeOptions();
     	options.addArguments("--headless=new");
         
-    	driver = new ChromeDriver(options);
-    	wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    	driver = new ChromeDriver();
+    	wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.get(url);
         driver.manage().window().maximize();
+        driver.navigate().refresh();
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("location.reload(true);");
+        
     }
 
     
@@ -77,7 +82,7 @@ public class BellMobilePlanServiceImpl implements MobilePlanService {
 
     public String getPlanName(String productID) {
         WebElement planNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[@id='" + productID + "']")));
-        return planNameElement.getText();
+    	return planNameElement.getText();
     }
 
     public String getMonthlyCost(String plan) {

@@ -37,8 +37,7 @@ import java.io.File;
 	 
 		    // Validate keyword format
 		    public static boolean isValidKeyword(String keyword) {
-		        // Keyword should contain only alphabetic characters, digits, and underscores
-		        return keyword.matches("[a-zA-Z0-9_]+");
+		    	return keyword.matches("^(([a-zA-Z]+|\\d+)|5g)$");
 		    }
 	 
 		    // Validate word list format
