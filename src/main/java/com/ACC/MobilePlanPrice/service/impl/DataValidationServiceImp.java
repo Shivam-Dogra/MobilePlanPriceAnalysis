@@ -1,6 +1,5 @@
 package com.ACC.MobilePlanPrice.service.impl;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,12 +15,12 @@ import java.io.File;
 			
 		    // Validate word format
 			public static boolean isValidWord(String word) {
-			    return word.matches("(?i)(?:[a-z$0-9]+|5g\\+?)");
+				return word.matches("(?i)(?:[a-z]+|5G?|4G?)");
 			}
 
 		    
 			public static boolean isValidSearch(String word) {
-			    return word.matches("(?i)([a-zA-Z$0-9]+|5G\\+?|5g\\+?)");
+			    return word.matches("(?i)(?:[a-z$0-9+ ]+|5G\\+?)");
 			}
 
 	 
@@ -37,7 +36,8 @@ import java.io.File;
 	 
 		    // Validate keyword format
 		    public static boolean isValidKeyword(String keyword) {
-		    	return keyword.matches("^(([a-zA-Z]+|\\d+)|5g)$");
+		    	return keyword.matches("(?i)(?:[a-zA-Z]+|5g\\+?)");
+
 		    }
 	 
 		    // Validate word list format

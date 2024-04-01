@@ -26,7 +26,7 @@ public class WebCrawlerServiceImp {
     public WebCrawlerServiceImp() {
         visitedUrls = new HashSet<String>();
         urlsToVisit = new LinkedList<String>();
-        this.maxUrlsToVisit = 5;
+        this.maxUrlsToVisit = 10;
         this.saveDir = "MobileWebCrawlDir";
     }
 

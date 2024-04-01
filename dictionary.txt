@@ -7,7 +7,10 @@ roaming
 network
 coverage
 unlimited
+unlimited data
 calling
+Canada-wide
+5G network
 SMS
 talk
 Canada
@@ -32,7 +35,6 @@ iPhone
 Android
 Samsung
 Apple
-LG
 Motorola
 Huawei
 OnePlus
@@ -130,7 +132,8 @@ nocontract
 activation
 terms
 subscription
-5G
+5G+
+
 Essential
 Voice
 package
@@ -532,7 +535,6 @@ iPhone
 Android
 Samsung
 Apple
-LG
 Motorola
 Huawei
 OnePlus
@@ -631,6 +633,7 @@ activation
 terms
 subscription
 5G
+5g
 Essential
 Voice
 package
@@ -663,11 +666,17 @@ Flexibility
 Customization
 Personalization
 Promo 75
+Promo
 Essential 100
 Ultimate 150 - CAN/U.S./MEX
 5G Mobile 75GB
-5G Infinite Essential
-5G Infinite Premium
+Infinite Essential
+Infinite Premium
+Infinite
+read
+call
+message
+text
 UNLIMITED 50GB
 UNLIMITED 75GB
 UNLIMITED 100GB
@@ -811,6 +820,7 @@ Firefox
 Safari
 Edge
 Internet Explorer
+internet
 Web
 Website
 Webpage
@@ -1083,4 +1093,4 @@ $65
 40
 55
 65
-
+5g/5g+

@@ -46,13 +46,17 @@ public class spellCheckImp {
             return suggestions;
         }
 
+        
         private void suggestCorrectionsDFS(BKTreeNode node, String query, int tolerance, List<String> suggestions) {
             if (node == null) {
                 return;
             }
 
             int distance = calculateDistance(node.word, query);
-            if (distance <= tolerance && !suggestions.contains(node.word) &&matchingLetters(node.word, query) >= 2) {
+            System.out.println("Word: " + node.word + ", Query: " + query + ", Distance: " + distance);
+
+            if (distance <= tolerance && !suggestions.contains(node.word)) /*&&matchingLetters(node.word, query) >= 3)*/ {
+            	 //System.out.println("Word added: " + node.word);
            // if (distance <= tolerance && !suggestions.contains(node.word) && node.word.length()>=3) {
                 suggestions.add(node.word);
             }
@@ -84,10 +88,14 @@ public class spellCheckImp {
             return dp[word1.length()][word2.length()];
         }
     }
+    
+    
 
     public static List<String> spellTheWord(String spellingToCheck) {
         BKTree bkTree = new BKTree();
         loadDictionary(bkTree, "dictionary.txt");
+        
+        
         int tolerance = 2; 
         String word = spellingToCheck;
         List<String> suggestions = bkTree.suggestCorrections(word, tolerance);
@@ -109,13 +117,15 @@ public class spellCheckImp {
         try {
             Scanner scanner = new Scanner(new File(fileName));
             while (scanner.hasNext()) {
-                bkTree.insert(scanner.next().toLowerCase());
+                //bkTree.insert(scanner.next());
+            	bkTree.insert(scanner.nextLine().toLowerCase());
             }
             scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
+    /*
     public static int matchingLetters(String word1, String word2) {
         int count = 0;
         for (int i = 0; i < Math.min(word1.length(), word2.length()); i++) {
@@ -124,7 +134,7 @@ public class spellCheckImp {
             }
         }
         return count;
-    }
+    }*/
 
 
 }

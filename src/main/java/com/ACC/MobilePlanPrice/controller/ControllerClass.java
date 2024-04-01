@@ -75,11 +75,12 @@ public class ControllerClass {
 	public ResponseEntity<Object> spellCheck(@PathVariable String userInput) {
 		try {
 			// Validate user input format
-            if (!DataValidationServiceImp.isValidWord(userInput)) {
+            
+			if (!DataValidationServiceImp.isValidSearch(userInput)) {
             	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
             }
-	        List<String> suggestions = spellCheckImp.spellTheWord(userInput);
-	        List<String> topTwoSuggestions = suggestions.subList(0, Math.min(suggestions.size(), 2));
+	        List<String> suggestions = spellCheckImp.spellTheWord(userInput.toLowerCase());
+	        List<String> topTwoSuggestions = suggestions.subList(0, Math.min(suggestions.size(), 3));
 	        return ResponseEntity.ok().body(topTwoSuggestions);
 	    } catch (Exception e) {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred: " + e.getMessage());
@@ -110,7 +111,7 @@ public class ControllerClass {
 	        collectWordFrequencies(root.left, searchFrequencyList);
 	        
 	        // Add word-frequency pair to the list
-	        if (DataValidationServiceImp.isValidSearch(root.word)) {
+	        if (DataValidationServiceImp.isValidWord(root.word)) {
 	        Map<String, Object> wordFrequencyMap = new HashMap<>();
 		        wordFrequencyMap.put("word", root.word);
 		        wordFrequencyMap.put("frequency", root.frequency);
@@ -128,7 +129,7 @@ public class ControllerClass {
 	public ResponseEntity<Object> wordCompletion(@PathVariable String userInput) {
 	    try {
 	    	// Validate user input format
-            if (!DataValidationServiceImp.isValidWord(userInput)) {
+            if (!DataValidationServiceImp.isValidSearch(userInput)) {
             	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid word format.");      
             }
 	        // Get the word completions for the user input
@@ -209,7 +210,7 @@ public class ControllerClass {
 	                return ResponseEntity.badRequest().body("Input word list is empty.");
 	        	}
 	        	// Validate user input format
-	            if (!DataValidationServiceImp.isValidSearch(userInput)) {
+	            if (!DataValidationServiceImp.isValidWord(userInput)) {
 	                return ResponseEntity.badRequest().body("Invalid word list format.");
 	            }
 	        	// Split userInput into individual words
